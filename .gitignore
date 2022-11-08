@@ -1,3 +1,27 @@
-logs/
-target/
+.sbtopts
+.bsp
+.idea/
+.bloop/
+.metals/
+project/.bloop/
+project/metals.sbt
+project/project
+project/target
+target
+dist/
+
 RUNNING_PID
+
+# Eclipse auto-generated files
+/modules/*/.classpath
+/modules/*/.project
+/modules/*/.settings/
+
+# VSCode auto-generated files
+.vscode/
+
+# IntelliJ auto-generated files
+.idea
+
+# Docker-compose
+/docker-compose.yml

@@ -9,7 +9,7 @@ lazy val root = Project("lila-fishnet", file("."))
   .disablePlugins(PlayAkkaHttpServer)
 
 scalaVersion := "2.13.10"
-resourceDirectory in Compile := baseDirectory.value / "conf"
+Compile / resourceDirectory := baseDirectory.value / "conf"
 
 val kamonVersion = "2.5.11"
 
@@ -21,6 +21,7 @@ libraryDependencies += "org.lichess" %% "scalachess"           % "10.6.3"
 libraryDependencies += "io.kamon"    %% "kamon-core"           % kamonVersion
 libraryDependencies += "io.kamon"    %% "kamon-influxdb"       % kamonVersion
 libraryDependencies += "io.kamon"    %% "kamon-system-metrics" % kamonVersion
+//libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml"            % VersionScheme.Always
 
 resolvers += "lila-maven" at "https://raw.githubusercontent.com/ornicar/lila-maven/master"
 
@@ -64,6 +65,9 @@ scalacOptions ++= Seq(
 
 javaOptions ++= Seq("-Xms64m", "-Xmx128m")
 
-sources in (Compile, doc) := Seq.empty
-
-publishArtifact in (Compile, packageDoc) := false
+//sources / (Compile, doc) := Seq.empty
+Compile / sources := Seq.empty
+doc / sources := Seq.empty
+Compile / packageDoc / publishArtifact := false
+//Compile / packageDoc := false
+//publishArtifact / (Compile, packageDoc) := false
